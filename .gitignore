@@ -1,0 +1,16 @@
+##### .gitignore
+
+### Generals
+.DS_Stopre
+*.pdf
+
+### Temps
+*~
+.*~
+*.swp
+.*.swp
+\#*\#
+.\#*\#
+
+### Dirs
+/build/
