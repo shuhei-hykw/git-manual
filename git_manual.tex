@@ -1,0 +1,107 @@
+% -*- coding: utf-8 -*-
+
+% Author: Shuhei Hayakawa
+
+\def\revision{v0.0}
+
+%_______________________________________________________________________________
+\documentclass[a4j,12pt]{jsarticle}
+%
+% packages
+%
+\usepackage{ascmac}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{listings}
+%
+% renewcommand
+%
+\renewcommand{\appendixname}{Appendix}
+%\renewcommand{\refname}{References}
+\renewcommand\thefootnote{\arabic{footnote})}
+%%%%% section
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+%%%%% equation
+\makeatletter
+\renewcommand{\theequation}{%
+  \thesection.\arabic{equation}}
+\@addtoreset{equation}{section}
+\makeatother
+%%%%% figure
+\makeatletter
+\renewcommand{\figurename}{Figure }
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\@addtoreset{figure}{section}
+\makeatother
+%%%%% table
+\makeatletter
+\renewcommand{\tablename}{Table }
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\@addtoreset{table}{section}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\makeatother
+%%%%% lst
+\lstset{language=sh,
+  basicstyle=\footnotesize,
+  commentstyle=\textit,
+  classoffset=1,
+  keywordstyle=\bfseries,
+  frame=tRBl,framesep=5pt,
+  showstringspaces=false,
+%  numbers=left,stepnumber=1,numberstyle=\footnotesize
+}
+%%%%% pagestyle
+\newcommand{\fulltoday}{\number\day\space \ifcase\month\or
+    January\or February\or March\or April\or May\or June\or
+    July\or August\or September\or October\or November\or December\fi
+    \space\number\year}
+\makeatletter
+\def\ps@mypapernopage{\let\@mkboth\@gobbletwo
+   \let\ps@jpl@in\ps@mypapernopage
+   \def\@oddhead{\textsf{\textsl{\revision \hfil \fulltoday}}}
+   \def\@oddfoot{\textsf{\hfil --\thepage --\hfil}}
+   \let\@evenhead\@evenhead%
+   \let\@evenfoot\@empty}
+\def\ps@mypaper{\let\@mkboth\@gobbletwo
+   \let\ps@jpl@in\ps@mypaper
+   \let\@oddhead\@empty
+   \def\@oddfoot{\textsf{\hfil --\thepage --\hfil}}
+   \let\@evenhead\@evenhead
+   \let\@evenfoot\@oddfoot}
+\makeatother
+\pagenumbering{arabic}
+\pagestyle{mypaper}
+
+%_______________________________________________________________________________
+\begin{document}
+
+\thispagestyle{mypapernopage}
+
+\sffamily
+
+\begin{center}
+  \Large{Git Manual}
+\end{center}
+\begin{flushright}
+  Shuhei Hayakawa \\
+  Osaka University
+\end{flushright}
+
+%\tableofcontents
+\[\]
+
+\setcounter{section}{-1}
+
+\section{Revision}
+
+\begin{itemize}
+  \item 2017.05.13 \ \ \ first version \dotfill v0.0
+\end{itemize}
+
+\section{General}
+
+\end{document}
+
+% EOF
