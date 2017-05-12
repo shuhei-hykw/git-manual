@@ -3,7 +3,7 @@
 # Author: Shuhei Hayakawa
 
 #_______________________________________________________________________________
-TARGET_NAME	= git_manual
+TARGET_NAME	= git-manual
 INC_DIR		= inc
 FIG_DIR		= fig
 BLD_DIR		= build
